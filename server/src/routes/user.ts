@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express'
 
-import passport from "../passport"
+import passport from '../passport'
 import { User } from '../models/user'
 
 const router = express.Router()
@@ -17,8 +17,7 @@ router.post('/', (req, res) => {
             res.json({
                 error: `Sorry, already a user with the username: ${username}`
             })
-        }
-        else {
+        } else {
             const newUser = new User({
                 username,
                 password

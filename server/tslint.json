@@ -16,8 +16,10 @@
       "dev"
     ],
     "no-console": false,
+    "only-arrow-functions": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
+    "object-literal-shorthand": false,
     "semicolon": [
       true,
       "never"

@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import user from "./routes/user"
+import user from './routes/user'
 const index = `
 <script src="/socket.io/socket.io.js"></script>
 <script>

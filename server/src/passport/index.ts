@@ -1,5 +1,5 @@
-import passport from "passport"
-import LocalStrategy from "./localStrategy"
+import passport from 'passport'
+import LocalStrategy from './localStrategy'
 import { User, UserModel } from '../models/user'
 
 // called on login, saves the id to session req.session.passport.user = {id:'..'}
@@ -13,19 +13,15 @@ passport.serializeUser((user: UserModel, done) => {
 // user object attaches to the request as req.user
 passport.deserializeUser((id, done) => {
     console.log('DeserializeUser called')
-    User.findOne(
-        { _id: id },
-        'username',
-        (err, user) => {
-            console.log('*** Deserialize user, user:')
-            console.log(user)
-            console.log('--------------')
-            done(null, user)
-        }
-    )
+    User.findOne({ _id: id }, 'username', (err, user) => {
+        console.log('*** Deserialize user, user:')
+        console.log(user)
+        console.log('--------------')
+        done(null, user)
+    })
 })
 
-//  Use Strategies 
+//  Use Strategies
 passport.use(LocalStrategy)
 
 export default passport

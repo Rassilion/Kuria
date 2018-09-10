@@ -5,6 +5,8 @@ import './App.css'
 import logo from './logo.svg'
 import io from 'socket.io-client'
 import SignIn from "./pages/SignIn"
+import SignUp from "./pages/SignUp"
+
 const socket = io('http://localhost:2020')
 
 function subscribeToTimer(cb: any) {
@@ -32,6 +34,7 @@ class App extends React.Component {
           {this.count} message
 
           <SignIn />
+          <SignUp />
         </p>
 
       </div>

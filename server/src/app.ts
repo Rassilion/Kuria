@@ -4,10 +4,10 @@ import socketio from 'socket.io'
 import bodyParser from 'body-parser'
 import { Routes } from './routes'
 import { Sockets } from './sockets'
-import passport from "./passport"
-import session from "express-session"
-import dbConnection from "./mongo"
-import connectMongo from "connect-mongo"
+import passport from './passport'
+import session from 'express-session'
+import dbConnection from './mongo'
+import connectMongo from 'connect-mongo'
 
 const MongoStore = connectMongo(session)
 class App {
@@ -33,8 +33,11 @@ class App {
     this.app.use(bodyParser.urlencoded({ extended: false }))
 
     this.app.use((req, res, next) => {
-      res.header("Access-Control-Allow-Origin", "*")
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+      res.header('Access-Control-Allow-Origin', '*')
+      res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+      )
       next()
     })
 
