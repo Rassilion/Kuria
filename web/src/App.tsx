@@ -1,9 +1,10 @@
 import { action, observable } from 'mobx'
 import { observer } from 'mobx-react'
-import * as React from 'react'
+import React from 'react'
 import './App.css'
 import logo from './logo.svg'
-import * as io from 'socket.io-client'
+import io from 'socket.io-client'
+import SignIn from "./pages/SignIn"
 const socket = io('http://localhost:2020')
 
 function subscribeToTimer(cb: any) {
@@ -29,6 +30,8 @@ class App extends React.Component {
         </header>
         <p className="App-intro">
           {this.count} message
+
+          <SignIn />
         </p>
 
       </div>

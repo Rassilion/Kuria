@@ -12,6 +12,8 @@
     ]
   },
   "rules": {
+    "object-literal-sort-keys": false,
+    "jsx-self-close": false,
     "member-access": false,
     "ordered-imports": false,
     "no-console": false,
