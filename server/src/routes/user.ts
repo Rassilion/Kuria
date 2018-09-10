@@ -1,17 +1,16 @@
 import express, { Request, Response } from 'express'
 
-
-const User = require('../database/models/user')
-const passport = require('../passport')
+import passport from "../passport"
+import { User } from '../models/user'
 
 const router = express.Router()
 
 router.post('/', (req, res) => {
-    console.log('user signup');
+    console.log('user signup')
 
     const { username, password } = req.body
     // ADD VALIDATION
-    User.findOne({ username: username }, (err, user) => {
+    User.findOne({ username }, (err, user) => {
         if (err) {
             console.log('User.js post error: ', err)
         } else if (user) {
@@ -21,12 +20,14 @@ router.post('/', (req, res) => {
         }
         else {
             const newUser = new User({
-                username: username,
-                password: password
+                username,
+                password
             })
             newUser.save((err, savedUser) => {
-                if (err) return res.json(err)
-                res.json(savedUser)
+                if (err) {
+                    return res.json(err)
+                }
+                return res.json(savedUser)
             })
         }
     })
@@ -34,18 +35,18 @@ router.post('/', (req, res) => {
 
 router.post(
     '/login',
-     (req, res, next) => {
-        console.log('routes/user.js, login, req.body: ');
+    (req, res, next) => {
+        console.log('routes/user.js, login, req.body: ')
         console.log(req.body)
         next()
     },
     passport.authenticate('local'),
     (req, res) => {
-        console.log('logged in', req.user);
-        var userInfo = {
+        console.log('logged in', req.user)
+        const userInfo = {
             username: req.user.username
-        };
-        res.send(userInfo);
+        }
+        res.send(userInfo)
     }
 )
 

@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-
+import user from "./routes/user"
 const index = `
 <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -11,5 +11,6 @@ export class Routes {
     app.route('/').get((req: Request, res: Response) => {
       res.send(index)
     })
+    app.use('/api/user', user)
   }
 }

@@ -1,13 +1,14 @@
-import { Document, Schema, Model, model} from "mongoose"
+import { Document, Schema, Model, model } from "mongoose"
 import bcrypt from "bcryptjs"
-import {IUser} from "../types/user"
+import { IUser } from "../types/user"
 
 export interface UserModel extends IUser, Document {
-    
-  }
+	checkPassword(inputPassword: string): boolean
+	hashPassword(plainTextPassword: string): string
+}
 
 // Define userSchema
-const userSchema:Schema  = new Schema({
+const userSchema: Schema = new Schema({
 
 	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false }
@@ -16,7 +17,7 @@ const userSchema:Schema  = new Schema({
 
 // Define schema methods
 userSchema.methods = {
-	checkPassword:  (inputPassword)=> {
+	checkPassword: (inputPassword) => {
 		return bcrypt.compareSync(inputPassword, this.password)
 	},
 	hashPassword: plainTextPassword => {
@@ -25,13 +26,13 @@ userSchema.methods = {
 }
 
 // Define hooks for pre-saving
-userSchema.pre('save', function (next) {
+userSchema.pre<UserModel>('save', function (next) {
 	if (!this.password) {
 		console.log('models/user.js =======NO PASSWORD PROVIDED=======')
 		next()
 	} else {
-		console.log('models/user.js hashPassword in pre save');
-		
+		console.log('models/user.js hashPassword in pre save')
+
 		this.password = this.hashPassword(this.password)
 		next()
 	}

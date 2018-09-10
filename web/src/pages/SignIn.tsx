@@ -20,7 +20,7 @@ class SignIn extends React.Component {
         console.log('handleSubmit')
 
         axios
-            .post('http://localhost:2020/api/login', {
+            .post('http://localhost:2020/api/user/login', {
                 username: this.username,
                 password: this.password
             })
