@@ -954,15 +954,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/connect-mongo@0.0.39":
-  version "0.0.39"
-  resolved "https://registry.yarnpkg.com/@types/connect-mongo/-/connect-mongo-0.0.39.tgz#802ac2bd41e88e9c45de158007a581e7cb922765"
-  dependencies:
-    "@types/express" "*"
-    "@types/express-session" "*"
-    "@types/mongodb" "^2"
-    "@types/mongoose" "^4"
-
 "@types/connect@*":
   version "3.4.32"
   resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.32.tgz#aa0e9616b9435ccad02bc52b5b454ffc2c70ba28"
@@ -981,7 +972,7 @@
     "@types/node" "*"
     "@types/range-parser" "*"
 
-"@types/express-session@*", "@types/express-session@^1.15.11":
+"@types/express-session@^1.15.11":
   version "1.15.11"
   resolved "https://registry.yarnpkg.com/@types/express-session/-/express-session-1.15.11.tgz#49bca7a8fb5c00402907e8ec0d3546ee28de2c41"
   dependencies:
@@ -1049,22 +1040,6 @@
   dependencies:
     "@types/bson" "*"
     "@types/events" "*"
-    "@types/node" "*"
-
-"@types/mongodb@^2":
-  version "2.2.23"
-  resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-2.2.23.tgz#2a50071a1ef2f93c87e71cbf1a07a46df094c958"
-  dependencies:
-    "@types/bson" "*"
-    "@types/events" "*"
-    "@types/node" "*"
-
-"@types/mongoose@^4":
-  version "4.7.39"
-  resolved "https://registry.yarnpkg.com/@types/mongoose/-/mongoose-4.7.39.tgz#08581b757922ebc7f69ccd55f5e4ffe6b06d172d"
-  dependencies:
-    "@types/events" "*"
-    "@types/mongodb" "*"
     "@types/node" "*"
 
 "@types/mongoose@^5.2.11":
